@@ -22,7 +22,7 @@ class BooksTableSeeder extends Seeder
             $new_book->price = $book['price'];
             $new_book->series = $book['series'];
             $new_book->sale_date = $book['sale_date'];
-            $new_book->type = $book['title'];
+            $new_book->type = $book['type'];
             $new_book->artists = json_encode($book['artists']);
             $new_book->writers = json_encode($book['writers']);
 
