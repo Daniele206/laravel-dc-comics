@@ -18,10 +18,10 @@ return new class extends Migration
             $table->text('description');
             $table->text('thumb');
             $table->string('price', 20);
-            $table->string('series', 20);
-            $table->date('sale_date');
-            $table->string('type', 20);
-            $table->json('artist');
+            $table->string('series', 100);
+            $table->date('sale_date', 100);
+            $table->string('type');
+            $table->json('artists');
             $table->json('writers');
             $table->timestamps();
         });
