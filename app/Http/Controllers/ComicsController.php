@@ -55,17 +55,27 @@ class ComicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Book $book)
     {
-        //
+        return view('books.edit', compact('book'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Book $book)
     {
-        //
+        $form_data = $request->all();
+
+        if($form_data['title'] === $book->title){
+            $form_data['slug'] = $book->slug;
+        }else{
+            $form_data['slug'] = Helper::generateSlug($form_data['title'], new Book());
+        }
+
+        $book->update($form_data);
+
+        return redirect()->route('books.show', $book);
     }
 
     /**

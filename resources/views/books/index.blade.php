@@ -15,7 +15,9 @@
                         <h5 class="card-title d-flex align-items-center justify-content-center" style="height: 60px;">{{$book['slug']}}</h5>
                         <span>{{$book['price']}}</span>
                         <br>
-                        <a href="{{ route('books.show', $book) }}" class="btn btn-success mt-3">More Info</a>
+                        <a href="{{ route('books.show', $book) }}" class="btn btn-success mt-3">Info</a>
+                        <a href="{{ route('books.edit', $book) }}" class="btn btn-warning mt-3">Modifica</a>
+                        <a href="#" class="btn btn-danger mt-3">Cancella</a>
                     </div>
                 </div>
                 @endforeach
