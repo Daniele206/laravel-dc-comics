@@ -81,8 +81,10 @@ class ComicsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Book $book)
     {
-        //
+        $book->delete();
+
+        return redirect()->route('books.index')->with('deleted', 'Il libro' . $book->title . 'é stato eliminato correttamente');
     }
 }
