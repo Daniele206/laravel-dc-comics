@@ -13,7 +13,10 @@
                 <a class="nav-link" href="{{ route('contacts') }}">Contatti</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('books.index') }}">I miei comics</a>
+                <a class="nav-link" href="{{ route('books.index') }}">Lista libri</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('books.create') }}">Aggiungi libro</a>
               </li>
             </ul>
           </div>
