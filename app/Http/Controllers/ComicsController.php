@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Functions\Helper;
 
 class ComicsController extends Controller
 {
@@ -30,7 +31,21 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+
+        $new_book = new Book();
+        $new_book->title = $form_data['title'];
+        $new_book->slug = Helper::generateSlug($new_book->title, new Book());
+        $new_book->description = $form_data['description'];
+        $new_book->thumb = $form_data['thumb'];
+        $new_book->price = $form_data['price'];
+        $new_book->series = $form_data['series'];
+        $new_book->sale_date = $form_data['sale_date'];
+        $new_book->type = $form_data['type'];
+
+        $new_book->save();
+
+        return redirect()->route('books.show', $new_book);
     }
 
     /**
