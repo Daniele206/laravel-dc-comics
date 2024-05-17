@@ -34,14 +34,10 @@ class ComicsController extends Controller
         $form_data = $request->all();
 
         $new_book = new Book();
-        $new_book->title = $form_data['title'];
-        $new_book->slug = Helper::generateSlug($new_book->title, new Book());
-        $new_book->description = $form_data['description'];
-        $new_book->thumb = $form_data['thumb'];
-        $new_book->price = $form_data['price'];
-        $new_book->series = $form_data['series'];
-        $new_book->sale_date = $form_data['sale_date'];
-        $new_book->type = $form_data['type'];
+
+        $form_data['slug'] = Helper::generateSlug($form_data['title'], new Book());
+
+        $new_book->fill($form_data);
 
         $new_book->save();
 
