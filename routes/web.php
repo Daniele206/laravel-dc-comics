@@ -18,4 +18,4 @@ Route::get('/',[PageController::class, 'index'])->name('home');
 
 Route::get('/contatti', [PageController::class, 'contacts'])->name('contacts');
 
-Route::resource('books', ComicsController::class);
+Route::resource('comics', ComicsController::class);

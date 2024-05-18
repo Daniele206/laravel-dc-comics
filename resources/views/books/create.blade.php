@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col col-8">
             <h1 class="fw-bold">Nuovo libro</h1>
-            <form class="my-4" action="{{ route('books.store') }}" method="POST">
+            <form class="my-4" action="{{ route('comics.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Titolo</label>
@@ -38,7 +38,7 @@
                 </div>
                 <button class="btn btn-primary" type="submit">Carica dati</button>
                 <button class="btn btn-warning" type="reset">Reset</button>
-                <a class="btn btn-danger" href="{{ route('books.index') }}">Back</a>
+                <a class="btn btn-danger" href="{{ route('comics.index') }}">Back</a>
             </form>
         </div>
     </div>

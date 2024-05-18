@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Book;
+use App\Models\Comic;
 use App\Functions\Helper;
 
 class ComicsController extends Controller
@@ -13,9 +13,9 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $comics = Comic::all();
 
-        return view('books.index', compact('books'));
+        return view('comics.index', compact('comics'));
     }
 
     /**
@@ -23,7 +23,7 @@ class ComicsController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        return view('comics.create');
     }
 
     /**
@@ -33,58 +33,58 @@ class ComicsController extends Controller
     {
         $form_data = $request->all();
 
-        $new_book = new Book();
+        $new_comic = new Comic();
 
-        $form_data['slug'] = Helper::generateSlug($form_data['title'], new Book());
+        $form_data['slug'] = Helper::generateSlug($form_data['title'], new Comic());
 
-        $new_book->fill($form_data);
+        $new_comic->fill($form_data);
 
-        $new_book->save();
+        $new_comic->save();
 
-        return redirect()->route('books.show', $new_book);
+        return redirect()->route('comics.show', $new_comic);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show(Comic $comic)
     {
-        return view('books.show', compact('book'));
+        return view('comics.show', compact('comic'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit(Comic $comic)
     {
-        return view('books.edit', compact('book'));
+        return view('comics.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Comic $comic)
     {
         $form_data = $request->all();
 
-        if($form_data['title'] === $book->title){
-            $form_data['slug'] = $book->slug;
+        if($form_data['title'] === $comic->title){
+            $form_data['slug'] = $comic->slug;
         }else{
-            $form_data['slug'] = Helper::generateSlug($form_data['title'], new Book());
+            $form_data['slug'] = Helper::generateSlug($form_data['title'], new Comic());
         }
 
-        $book->update($form_data);
+        $comic->update($form_data);
 
-        return redirect()->route('books.show', $book);
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy(Comic $comic)
     {
-        $book->delete();
+        $comic->delete();
 
-        return redirect()->route('books.index')->with('deleted', 'Il libro' . $book->title . 'é stato eliminato correttamente');
+        return redirect()->route('comics.index')->with('deleted', 'Il libro' . $comic->title . 'é stato eliminato correttamente');
     }
 }
