@@ -10,7 +10,7 @@ class PageController extends Controller
 {
     public function index(){
 
-        $num_books = Comic::count();
+        $num_comics = Comic::count();
 
         return view('home', compact(('num_comics')));
     }
