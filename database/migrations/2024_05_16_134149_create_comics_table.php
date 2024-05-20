@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('thumb')->nullable();
             $table->string('price', 20)->nullable();
             $table->string('series', 100)->nullable();
-            $table->date('sale_date', 100)->nullable();
-            $table->string('type')->nullable();
+            $table->date('sale_date')->nullable();
+            $table->string('type',100)->nullable();
             $table->json('artists')->nullable();
             $table->json('writers')->nullable();
             $table->timestamps();
