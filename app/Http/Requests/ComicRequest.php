@@ -23,11 +23,10 @@ class ComicRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5|max:100',
-            'description' => 'min:5|max:255',
-            'thumb' => 'min:5|max:255',
-            'price' => 'min:4|max:20',
-            'series' => 'min:5|max:100',
-            'type' => 'min:5|max:100',
+            'series' => 'required|min:5|max:100',
+            'description' => 'required|min:5',
+            'type' => 'required|min:5|max:100',
+            'price' => 'max:20',
         ];
     }
 
@@ -37,16 +36,16 @@ class ComicRequest extends FormRequest
             'title.required' => 'Il campo titolo é obbligatorio',
             'title.min' => 'Il titolo deve essere lungo minimo 5 caratteri',
             'title.max' => 'Il titolo deve essere lungo massimo 100 caratteri',
-            'description.min' => 'La descrizzione deve essere lunga minimo 5 caratteri',
-            'description.max' => 'La descrizzione deve essere lunga massimo 255 caratteri',
-            'thumb.min' => 'Il link(img) deve essere lungo minimo 5 caratteri',
-            'thumb.max' => 'Il link(img) deve essere lungo massimo 255 caratteri',
-            'price.min' => 'Il prezzo deve essere lungo minimo 4 caratteri',
-            'price.max' => 'Il prezzo deve essere lungo massimo 20 caratteri',
+            'series.required' => 'Il campo serie é obbligatorio',
             'series.min' => 'Il campo serie deve avere un contenuto lungo minimo 5 caratteri',
             'series.max' => 'Il campo serie deve avere un contenuto lungo massimo 100 caratteri',
+            'description.required' => 'La descrizzione é obbligatoria',
+            'description.min' => 'La descrizzione deve essere lunga minimo 5 caratteri',
+            'description.max' => 'La descrizzione deve essere lunga massimo 255 caratteri',
+            'type.required' => 'Il campo tipologgia é obbligatorio',
             'type.min' => 'Il campo tipologgia deve avere un contenuto lungo minimo 5 caratteri',
             'type.max' => 'Il campo tipologgia deve avere un contenuto lungo massimo 100 caratteri',
+            'price.max' => 'Il prezzo deve essere lungo massimo 20 caratteri',
         ];
     }
 }

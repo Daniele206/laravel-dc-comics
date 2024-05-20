@@ -6,6 +6,15 @@
     <div class="row">
         <div class="col col-8">
             <h1 class="fw-bold">Nome prodotto</h1>
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form class="my-4" action="{{ route('comics.update', $comic) }}" method="POST">
                 @csrf
                 @method('PUT')
